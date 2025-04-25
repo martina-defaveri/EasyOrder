@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService", "UserService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddressBookService", "AddressBookService\AddressBookService.csproj", "{5E758B6D-804C-43A6-B210-428C65623468}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductService", "ProductService\ProductService.csproj", "{A49A4B6E-1AB5-484F-9D08-04340CEFCBB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,9 +25,14 @@ Global
 		{5E758B6D-804C-43A6-B210-428C65623468}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E758B6D-804C-43A6-B210-428C65623468}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E758B6D-804C-43A6-B210-428C65623468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A49A4B6E-1AB5-484F-9D08-04340CEFCBB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A49A4B6E-1AB5-484F-9D08-04340CEFCBB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A49A4B6E-1AB5-484F-9D08-04340CEFCBB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A49A4B6E-1AB5-484F-9D08-04340CEFCBB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6090E359-707E-4778-AE7C-9EF0E64F1793} = {A83BA2A5-6B08-4EE6-B835-40C420E1E5C7}
 		{5E758B6D-804C-43A6-B210-428C65623468} = {A83BA2A5-6B08-4EE6-B835-40C420E1E5C7}
+		{A49A4B6E-1AB5-484F-9D08-04340CEFCBB6} = {A83BA2A5-6B08-4EE6-B835-40C420E1E5C7}
 	EndGlobalSection
 EndGlobal
