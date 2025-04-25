@@ -361,19 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-
-# My custom filters
-
-Software/Output/
-
-Software/Sandcastle/Electrolux.EAP.Documentation/Working/
-
-tools/
-
-sources/test/Synapse.ServerApp.IntegrationTest/Properties/launchSettings.json
-sources/Connectivity Tools 2.lutconfig
-
-/sources/ui/synapse/Synapse.Primitives/wwwroot/lib
-sources/ui/synapse/Synapse.Primitives/wwwroot/generated-components.css
-
-sources/.editorconfig
