@@ -1,0 +1,7 @@
+﻿services:
+  easyorder:
+    image: easyorder
+    build:
+      context: .
+      dockerfile: EasyOrder/Dockerfile
+
