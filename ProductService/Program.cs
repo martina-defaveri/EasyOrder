@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProductService.API.Mapping;
+using ProductService.Application;
 using ProductService.Data;
-using ProductService.Data.Application;
 using ProductService.Data.Repository;
 
 namespace ProductService;
@@ -31,7 +31,7 @@ public class Program
         builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
         builder.Services.AddScoped<ICategoryService, CategoryService>();
         builder.Services.AddScoped<IProductRepository, ProductRepository>();
-        builder.Services.AddScoped<IProductService, Data.Application.ProductService>();
+        builder.Services.AddScoped<IProductService, Application.ProductService>();
         builder.Services.AddAutoMapper(typeof(ProductMapping));
         builder.Services.AddAutoMapper(typeof(CategoryMapping));
 

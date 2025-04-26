@@ -45,7 +45,7 @@ public class ProductRepository(ProductServiceDbContext dbContext) : IProductRepo
     }
 
     public async Task<Product?> GetProductByIdAsync(Guid productId) =>
-        await dbContext.Products.AsNoTracking().FirstOrDefaultAsync(x => x.Id == productId);
+        await dbContext.Products.Include(x => x.Category).AsNoTracking().FirstOrDefaultAsync(x => x.Id == productId);
 
     public Task<IEnumerable<Product>> GetAllProductsAsync()
     {

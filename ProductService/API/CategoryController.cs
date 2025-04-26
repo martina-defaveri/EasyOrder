@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ProductService.API.DTO;
-using ProductService.Data.Application;
+using ProductService.Application;
 using ProductService.Domain;
 
 namespace ProductService.API;

@@ -1,7 +1,7 @@
 using ProductService.Data.Repository;
 using ProductService.Domain;
 
-namespace ProductService.Data.Application;
+namespace ProductService.Application;
 
 public class ProductService(IProductRepository repository) : IProductService
 {

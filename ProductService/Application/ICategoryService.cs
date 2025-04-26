@@ -1,6 +1,6 @@
 using ProductService.Domain;
 
-namespace ProductService.Data.Application;
+namespace ProductService.Application;
 
 public interface ICategoryService
 {
