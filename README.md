@@ -65,6 +65,7 @@ Each domain (Products, Categories, Users, AddressBook, Orders) is isolated into 
 ### Prerequisites
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download)
+- MySql
 - [Docker](https://www.docker.com/) (for containerized deployment)
 - EF support :
   ```bash
