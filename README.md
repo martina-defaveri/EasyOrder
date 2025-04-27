@@ -2,7 +2,7 @@
 
 This project is a modular and minimal **Order Management System** based on .NET 9, following best practices for microservice separation.
 
-Each domain (Products, Categories, Users, Addresses, Orders) is isolated into its own service without direct dependencies between them.
+Each domain (Products, Categories, Users, AddressBook, Orders) is isolated into its own service without direct dependencies between them.
 
 ---
 
@@ -16,9 +16,10 @@ Each domain (Products, Categories, Users, Addresses, Orders) is isolated into it
 - Entity Framework Core (EF Core) for data persistence
 - Clean separation between Domain, Repository, Service (Application Layer), and API
 - REST APIs for all CRUD operations
-- Unit tests for almost every service
+- Unit tests for every service
 - Docker support for easy containerization
-- API Gateway withn YARP tecnology
+- API Gateway with YARP tecnology
+- Swagger for microservices
 
 ---
 
@@ -64,7 +65,7 @@ Each domain (Products, Categories, Users, Addresses, Orders) is isolated into it
 ### Prerequisites
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download)
-- [Docker](https://www.docker.com/) (optional, for containerized deployment)
+- [Docker](https://www.docker.com/) (for containerized deployment)
 - EF support :
   ```bash
   dotnet tool install --global dotnet-ef
@@ -85,6 +86,7 @@ Each domain (Products, Categories, Users, Addresses, Orders) is isolated into it
    ```bash
    dotnet restore
    ```
+   
 3. Build:
    ```bash
    dotnet build
@@ -99,15 +101,17 @@ Each domain (Products, Categories, Users, Addresses, Orders) is isolated into it
    ```
    https://localhost:[port]
    ```
+   
 ### Swagger
 
-1. As everything is up and running (both docker and local deploy):
+1. As everything is up and running (both docker and local deploy) only for microservices:
    ```bash
    http://localhost:[service-port]/swagger/index.html
    ```
 
-### Running with Docker
-Fist is necessary to create a network:
+### Running with Docker manually deploy
+
+First is necessary to create a network:
 
 ```bash
 docker network create order-network
@@ -152,12 +156,15 @@ dotnet ef database update --project UserService/UserService.csproj
 dotnet ef database update --project AddressBookService/AddressBookService.csproj
 ```
 
-As there is as Docker Compose the entire system is runnable with just few commads:
+### Running with Docker with Docker Compose
+
+Commands for runnig with Docker Compose:
 ```bash
 docker-compose build
 docker-compose up
 ```
-Since the containers are up and running the apply the migration from cmd:
+
+Since the containers are up and running then apply the migration from cmd (from solution folder):
 ```bash
 dotnet ef database update --project OrderService/OrderService.csproj
 dotnet ef database update --project ProductService/ProductService.csproj
@@ -177,13 +184,13 @@ dotnet ef database update --project AddressBookService/AddressBookService.csproj
 - Moq for mocking
 - Docker for containerization
 - Automapper for map between DTO and domain object
-- YARP https://learn.microsoft.com/it-it/aspnet/core/fundamentals/servers/yarp/yarp-overview?view=aspnetcore-9.0
+- YARP (https://learn.microsoft.com/it-it/aspnet/core/fundamentals/servers/yarp/yarp-overview?view=aspnetcore-9.0)
 
 ---
 
 ## 🧪 Running Tests
 
-To run the unit tests for any service:
+To run the unit tests for any service (this is just an example):
 
 ```bash
 cd ProductService.Tests
@@ -236,10 +243,13 @@ Tests are written using **xUnit** and use **Moq** for repository mocking.
 
 ## 📋 Future Improvements
 
-- Improve tests creating missing one and testing corner case
+- Improve tests creating missing one and testing edge case
+- Create test with more data
+- Improve project structure
 - Add Authentication & Authorization
 - Implement asynchronous messaging (ex. using RabbitMQ or Azure Service Bus)
 - Add CI/CD pipelines for automated deployments
+- Remove stack trace from result in case of internal server error
 
 ---
 
