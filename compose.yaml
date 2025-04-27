@@ -1,7 +1,75 @@
 ﻿services:
-  easyorder:
-    image: easyorder
-    build:
-      context: .
-      dockerfile: EasyOrder/Dockerfile
+  mysql:
+    image: mysql:latest
+    container_name: MySql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin 
+    ports:
+      - "3307:3306" 
+    networks:
+      - ordernetwork
 
+  apigateway:
+    build:
+      context: ./ApiGateway
+    ports:
+      - "5070:8080"
+    depends_on:
+      - orderservice
+      - productservice
+      - userservice
+      - addressbookservice
+    networks:
+      - ordernetwork
+
+  orderservice:
+    build:
+      context: ./OrderService
+    ports:
+      - "5074:8080"
+    depends_on:
+      - mysql
+    environment:
+      ConnectionStrings__MySqlConnection: "Server=MySql;Port=3306;Database=OrderDB;User=root;Password=admin;"
+    networks:
+      - ordernetwork
+
+  productservice:
+    build:
+      context: ./ProductService
+    ports:
+      - "5073:8080"
+    depends_on:
+      - mysql
+    environment:
+      ConnectionStrings__MySqlConnection: "Server=MySql;Port=3306;Database=OrderDB;User=root;Password=admin;"
+    networks:
+      - ordernetwork
+
+  userservice:
+    build:
+      context: ./UserService
+    ports:
+      - "5071:8080"
+    depends_on:
+      - mysql
+    environment:
+      ConnectionStrings__MySqlConnection: "Server=MySql;Port=3306;Database=OrderDB;User=root;Password=admin;"
+    networks:
+      - ordernetwork
+  
+  addressbookservice:
+    build:
+      context: ./AddressBookService
+    ports:
+      - "5072:8080"
+    depends_on:
+      - mysql
+    environment:
+      ConnectionStrings__MySqlConnection: "Server=MySql;Port=3306;Database=OrderDB;User=root;Password=admin;"
+    networks:
+      - ordernetwork
+
+networks:
+  ordernetwork:
+    driver: bridge
