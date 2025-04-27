@@ -99,7 +99,7 @@ Each domain (Products, Categories, Users, AddressBook, Orders) is isolated into 
 
 5. The API will be available at (see appsetting for the service port):
    ```
-   https://localhost:[port]
+   http://localhost:[port]
    ```
    
 ### Swagger
@@ -171,6 +171,14 @@ dotnet ef database update --project ProductService/ProductService.csproj
 dotnet ef database update --project UserService/UserService.csproj
 dotnet ef database update --project AddressBookService/AddressBookService.csproj
 ```
+
+### Use API Gateway
+
+When everithing is up and running the API gateway is reachble at:
+
+ ```
+ http://localhost:5070/api/[service]
+ ```
 
 ---
 
